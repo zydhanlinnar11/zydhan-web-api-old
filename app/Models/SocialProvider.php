@@ -40,4 +40,12 @@ class SocialProvider extends Model
             }
         });
     }
+
+    /**
+     * The users that belong to the social provider.
+     */
+    public function users()
+    {
+        return $this->belongsToMany(User::class)->withTimestamps()->withPivot('social_id', 'token', 'refresh_token');
+    }
 }
