@@ -55,6 +55,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      */
     public function social_providers()
     {
-        return $this->belongsToMany(SocialProvider::class)->withTimestamps();
+        return $this->belongsToMany(SocialProvider::class)->withTimestamps()->withPivot('social_id', 'token', 'refresh_token');
     }
 }
