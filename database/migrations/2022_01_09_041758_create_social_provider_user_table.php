@@ -15,9 +15,9 @@ class CreateSocialProviderUserTable extends Migration
     {
         Schema::create('social_provider_user', function (Blueprint $table) {
             $table->uuid('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->uuid('social_provider_id');
-            $table->foreign('social_provider_id')->references('id')->on('social_providers');
+            $table->foreign('social_provider_id')->references('id')->on('social_providers')->cascadeOnDelete();
             $table->timestamps();
         });
     }
