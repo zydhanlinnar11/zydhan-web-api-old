@@ -11,7 +11,7 @@ class SocialProvider extends Model
      *
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'client_id', 'client_secret'];
 
     /**
      * The data type of the auto-incrementing ID.
