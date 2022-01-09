@@ -16,3 +16,9 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+
+$router->group(['prefix' => 'auth'], function () use ($router) {
+    $router->get('{provider_name}/redirect', ['as' => 'auth_redirect', 'uses' => 'AuthController@handle_redirect']);
+    $router->get('{provider_name}/callback', ['as' => 'auth_callback', 'uses' => 'AuthController@handle_callback']);
+});
