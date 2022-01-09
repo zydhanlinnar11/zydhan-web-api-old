@@ -58,4 +58,12 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
             }
         });
     }
+
+    /**
+     * The social providers that belong to the user.
+     */
+    public function social_providers()
+    {
+        return $this->belongsToMany(SocialProvider::class)->withTimestamps();
+    }
 }
