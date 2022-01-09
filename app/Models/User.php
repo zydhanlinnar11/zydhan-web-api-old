@@ -49,4 +49,12 @@ class User extends Authenticatable
             }
         });
     }
+
+    /**
+     * The social providers that belong to the user.
+     */
+    public function social_providers()
+    {
+        return $this->belongsToMany(SocialProvider::class)->withTimestamps()->withPivot('social_id', 'token', 'refresh_token');
+    }
 }
