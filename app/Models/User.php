@@ -37,6 +37,15 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     public $incrementing = false;
 
     /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'pivot',
+    ];
+
+    /**
      * The "booted" method of the model.
      *
      * @return void
